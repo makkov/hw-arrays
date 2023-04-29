@@ -82,13 +82,57 @@ public class Main {
         }
         */
         System.out.println("=== === ===");
+
+        /*
+        Создайте 2 массива из 5 случайных целых чисел из отрезка [0;5] каждый,
+        выведите массивы в консоль в двух отдельных строках.
+        Посчитайте среднее арифметическое элементов каждого массива
+        и сообщите, для какого из массивов это значение оказалось больше (либо сообщите, что их средние арифметические равны).
+        * */
+
+        int[] arr1 = generateRandomArray();
+        int[] arr2 = generateRandomArray();
+
+        for (int i : arr1) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        for (int i : arr2) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        int sum1 = 0;
+        for (int i : arr1) {
+            sum1 += i;
+        }
+
+        double avg1 = (double) sum1 / arr1.length;
+        System.out.println("Среднее певрое: " + avg1);
+
+        int sum2 = 0;
+        for (int i : arr2) {
+            sum2 += i;
+        }
+
+        double avg2 = (double) sum2 / arr2.length;
+        System.out.println("Среднее второе: " + avg2);
+
+        if (avg1 == avg2) {
+            System.out.println("СА равны");
+        } else if (avg1 > avg2) {
+            System.out.println("СА первого массива больше");
+        } else {
+            System.out.println("СА второго массива больше");
+        }
     }
 
     public static int[] generateRandomArray() {
         java.util.Random random = new java.util.Random();
-        int[] arr = new int[3];
+        int[] arr = new int[5];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100_000) + 100_000;
+            arr[i] = random.nextInt(5);
         }
         return arr;
     }
