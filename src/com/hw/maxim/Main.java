@@ -1,6 +1,7 @@
 package com.hw.maxim;
 
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
@@ -126,7 +127,49 @@ public class Main {
         } else {
             System.out.println("СА второго массива больше");
         }
+
+        /*
+        Создайте массив из 4 случайных целых чисел из отрезка [10;99],
+        выведите его на экран в строку.
+        Определить и вывести на экран сообщение о том, является ли массив строго возрастающей последовательностью.
+        * */
+
+        int[] correct = new int[]{0, 4, 5, 6, 8, 55, 6423, 1246243};
+        int[] inCorrect = new int[]{0, 4, 5, 6, 8, 55, 1246243, 6423, -1};
+
+        System.out.println(isRaiseArray(correct));
+        System.out.println(isRaiseArray(inCorrect));
     }
+
+    public static boolean isRaiseArray(int[] arr) {
+        int min = arr[0];
+        for (int i: arr) {
+            if (i < min) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+//    public static void task4() {
+//        System.out.println(" 1.5 Массивы 4 задание");
+//        int[] arr = new int[4];
+//        for (int i = 0; i < arr.length; i++) {
+//            arr[i] = 10 + ThreadLocalRandom.current().nextInt(99);
+//
+//        }
+//        System.out.println(Arrays.toString(arr));
+//
+//        int[] arr2 =Arrays.copyOf(arr, arr.length);
+//        Arrays.sort(arr2);
+//        System.out.println(Arrays.toString(arr2));
+//        if (Arrays.equals(arr, arr2)){
+//            System.out.println("Массив имеет строгую последовательность");
+//        }
+//        else{
+//            System.out.println("Массив не имеет строгой последовательности");
+//        }
+//    }
 
     public static int[] generateRandomArray() {
         java.util.Random random = new java.util.Random();
